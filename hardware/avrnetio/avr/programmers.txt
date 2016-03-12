@@ -12,3 +12,6 @@ dragonhvsp.name=Dragon HVSP
 dragonhvsp.communication=usb
 dragonhvsp.protocol=dragon_hvsp
 
+atmelice_isp.name=Atmel-ICE (ISP)
+atmelice_isp.communication=usb
+atmelice_isp.protocol=atmelice_isp
