@@ -1,0 +1,89 @@
+menu.cpu=Processor
+##################################################
+# anio: AVR_NET_IO - avrnetio 
+##################################################
+anio.name=AVR_NET_IO (avrnetio)
+anio.bootloader.tool=avrdude
+anio.upload.tool=avrdude
+anio.upload.speed=115200
+anio.upload.protocol=arduino
+anio.build.core=avrnetio
+anio.build.board=AVR_NET_IO
+anio.build.f_cpu=16000000L
+anio.build.variant=avrnetio
+#-------------------------------------------------
+# anio32: avrnetio /w atmega32 (optiboot.c)
+#-------------------------------------------------
+anio.menu.cpu.anio32=atmega32 (optiboot.c)
+anio.menu.cpu.anio32.build.mcu=atmega32
+anio.menu.cpu.anio32.build.f_cpu=16000000L
+anio.menu.cpu.anio32.upload.protocol=arduino
+anio.menu.cpu.anio32.upload.maximum_size=32256
+anio.menu.cpu.anio32.upload.maximum_data_size=2048
+anio.menu.cpu.anio32.upload.speed=115200
+anio.menu.cpu.anio32.bootloader.file=optiboot/optiboot_anio32.hex
+#    text	   data	    bss	    dec	    hex	filename
+#     502	      0	      0	    502	    1f6	optiboot_anio32.elf
+anio.menu.cpu.anio32.bootloader.low_fuses=0xBF
+anio.menu.cpu.anio32.bootloader.high_fuses=0xDE
+anio.menu.cpu.anio32.bootloader.tool=avrdudeNoEFuse
+anio.menu.cpu.anio32.bootloader.lock_bits=0x3f
+anio.menu.cpu.anio32.bootloader.unlock_bits=0x0f
+#-------------------------------------------------
+#-------------------------------------------------
+# anio644: avrnetio /w atmega644 (optiboot.c)
+#-------------------------------------------------
+anio.menu.cpu.anio644=atmega644 (optiboot.c)
+anio.menu.cpu.anio644.build.mcu=atmega644
+anio.menu.cpu.anio644.build.f_cpu=16000000L
+anio.menu.cpu.anio644.upload.protocol=arduino
+anio.menu.cpu.anio644.upload.maximum_size=64512
+anio.menu.cpu.anio644.upload.maximum_data_size=4096
+anio.menu.cpu.anio644.upload.speed=115200
+anio.menu.cpu.anio644.bootloader.file=optiboot/optiboot_anio644.hex
+#    text	   data	    bss	    dec	    hex	filename
+#     560	      0	      0	    560	    230	optiboot_anio644.elf
+anio.menu.cpu.anio644.bootloader.low_fuses=0xFF
+anio.menu.cpu.anio644.bootloader.high_fuses=0xDE
+anio.menu.cpu.anio644.bootloader.extended_fuses=0xFD 
+anio.menu.cpu.anio644.bootloader.lock_bits=0x3f
+anio.menu.cpu.anio644.bootloader.unlock_bits=0x0f
+#-------------------------------------------------
+#-------------------------------------------------
+# anio644p: avrnetio /w atmega644p (optiboot.c)
+#-------------------------------------------------
+anio.menu.cpu.anio644p=atmega644p (optiboot.c)
+anio.menu.cpu.anio644p.build.mcu=atmega644p
+anio.menu.cpu.anio644p.build.f_cpu=16000000L
+anio.menu.cpu.anio644p.upload.protocol=arduino
+anio.menu.cpu.anio644p.upload.maximum_size=64512
+anio.menu.cpu.anio644p.upload.maximum_data_size=4096
+anio.menu.cpu.anio644p.upload.speed=115200
+anio.menu.cpu.anio644p.bootloader.file=optiboot/optiboot_anio644p.hex
+#    text	   data	    bss	    dec	    hex	filename
+#     560	      0	      0	    560	    230	optiboot_anio644p.elf
+anio.menu.cpu.anio644p.bootloader.low_fuses=0xFF
+anio.menu.cpu.anio644p.bootloader.high_fuses=0xDE
+anio.menu.cpu.anio644p.bootloader.extended_fuses=0xFD 
+anio.menu.cpu.anio644p.bootloader.lock_bits=0x3f
+anio.menu.cpu.anio644p.bootloader.unlock_bits=0x0f
+#-------------------------------------------------
+#-------------------------------------------------
+# anio1284p: avrnetio /w atmega1284p (ATmegaBOOT_168.c)
+#-------------------------------------------------
+anio.menu.cpu.anio1284p=atmega1284p (ATmegaBOOT_168.c)
+anio.menu.cpu.anio1284p.build.mcu=atmega1284p
+anio.menu.cpu.anio1284p.build.f_cpu=16000000L
+anio.menu.cpu.anio1284p.upload.protocol=stk500
+anio.menu.cpu.anio1284p.upload.maximum_size=129024
+anio.menu.cpu.anio1284p.upload.maximum_data_size=8192
+anio.menu.cpu.anio1284p.upload.speed=57600
+anio.menu.cpu.anio1284p.bootloader.file=atmega/ATmegaBOOT_168_anio1284p.hex
+#    text	   data	    bss	    dec	    hex	filename
+#    1900	      2	    267	   2169	    879	ATmegaBOOT_168_anio1284p.elf
+anio.menu.cpu.anio1284p.bootloader.low_fuses=0xFF
+anio.menu.cpu.anio1284p.bootloader.high_fuses=0xDC
+anio.menu.cpu.anio1284p.bootloader.extended_fuses=0xFD 
+anio.menu.cpu.anio1284p.bootloader.lock_bits=0x3f
+anio.menu.cpu.anio1284p.bootloader.unlock_bits=0x0f
+#-------------------------------------------------
