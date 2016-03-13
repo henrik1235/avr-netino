@@ -1,0 +1,54 @@
+{
+	"packages": [
+		{
+			"name": "avrnetio",
+			"maintainer": "cniweb, maassen, henrik1235",
+			"websiteURL": "https://github.com/henrik1235/avr-netino",
+			"email": "henrik1235@users.noreply.github.com",
+			"help": {
+				"online": "https://github.com/henrik1235/avr-netino"
+			},
+		
+			
+			"platforms": [
+				{
+					"name": "avrnetio",
+					"architecture": "avr",
+					"version": "1.0.0",
+					"category": "Contributed",
+
+					"url": "http://henrik1235.bplaced.net/arduino/avr-netino.zip",
+					"archiveFileName": "avr-netino.zip",
+					"checksum": "SHA-256:ef6c351abeff30f297a8cb94329d0a5a55b81b0ce881c490602492ee9cfdd00f",
+					"size": "5776332",	
+
+					"help": {
+						"online": "https://github.com/henrik1235/avr-netino"
+					},
+
+					"boards": [ 
+						{ "name": "AVR-Net-IO atmega32" },
+						{ "name": "AVR-Net-IO atmega644" },
+						{ "name": "AVR-Net-IO atmega644p" },
+						{ "name": "AVR-Net-IO atmega1284p" }
+					],
+					"toolsDependencies": [
+						{
+							"packager":"arduino",
+							"name":"avr-gcc",
+							"version":"4.8.1-arduino5"
+						},
+						{
+							"packager":"arduino",
+							"name":"avrdude",
+							"version":"6.0.1-arduino5"
+						}
+					]
+				}
+			],
+			"tools":[
+
+			]
+		}
+	]
+}
