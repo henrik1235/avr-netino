@@ -45,20 +45,26 @@
 *   still compile but the program will not work. Saves about 60 bytes SRAM and
 *   1550 bytes flash.
 */
+#ifndef ETHERCARD_DHCP
 #define ETHERCARD_DHCP 1
+#endif
 
 /** Enable client connections.
 * Setting this to zero means that the program cannot issue TCP client requests
 * anymore. Compilation will still work but the request will never be
 * issued. Saves 4 bytes SRAM and 550 byte flash.
 */
+#ifndef ETHERCARD_TCPCLIENT
 #define ETHERCARD_TCPCLIENT 1
+#endif
 
 /** Enable TCP server functionality. 
 *   Setting this to zero means that the program will not accept TCP client
 *   requests. Saves 2 bytes SRAM and 250 bytes flash.
 */
+#ifndef ETHERCARD_TCPSERVER
 #define ETHERCARD_TCPSERVER 1
+#endif
 
 /** Enable UDP server functionality. 
 *   If zero UDP server is disabled. It is
@@ -67,21 +73,27 @@
 *   seem to save anything; maybe the linker is then smart enough to optimize the
 *   call away.
 */
+#ifndef ETHERCARD_UDPSERVER
 #define ETHERCARD_UDPSERVER 1
+#endif
 
 /** Enable automatic reply to pings.
 *   Setting to zero means that the program will not automatically answer to
 *   PINGs anymore. Also the callback that can be registered to answer incoming
 *   pings will not be called. Saves 2 bytes SRAM and 230 bytes flash.
 */
+#ifndef ETHERCARD_ICMP
 #define ETHERCARD_ICMP 1
+#endif
 
 /** Enable use of stash.
 *   Setting this to zero means that the stash mechanism cannot be used. Again
 *   compilation will still work but the program may behave very unexpectedly.
 *   Saves 30 bytes SRAM and 80 bytes flash.
 */
+#ifndef ETHERCARD_STASH
 #define ETHERCARD_STASH 1
+#endif
 
 
 /** This type definition defines the structure of a UDP server event handler callback funtion */
