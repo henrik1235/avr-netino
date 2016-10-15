@@ -15,11 +15,12 @@
 
 #define WRITEBUF  0
 #define READBUF   1
+#define BUFCOUNT  2
 
 //#define FLOATEMIT // uncomment line to enable $T in emit_P for float emitting
 
 byte Stash::map[SCRATCH_MAP_SIZE];
-Stash::Block Stash::bufs[2];
+Stash::Block Stash::bufs[BUFCOUNT];
 
 uint8_t Stash::allocBlock () {
     for (uint8_t i = 0; i < sizeof map; ++i)
@@ -154,7 +155,7 @@ static char* wtoa (uint16_t value, char* ptr) {
 
 // write information about the fmt string and the arguments into special page/block 0    
 // block 0 is initially marked as allocated and never returned by allocateBlock 
-void Stash::prepare (PGM_P fmt, ...) {
+void Stash::prepare (const char* fmt PROGMEM, ...) {
     Stash::load(WRITEBUF, 0);
     uint16_t* segs = Stash::bufs[WRITEBUF].words;
     *segs++ = strlen_P(fmt);
@@ -187,7 +188,7 @@ void Stash::prepare (PGM_P fmt, ...) {
                 arglen = strlen((const char*) argval);
                 break;
             case 'F':
-                arglen = strlen_P((PGM_P) argval);
+                arglen = strlen_P((const char*) argval);
                 break;
             case 'E': {
                 byte* s = (byte*) argval;
@@ -223,9 +224,9 @@ void Stash::extract (uint16_t offset, uint16_t count, void* buf) {
     Stash::load(WRITEBUF, 0);
     uint16_t* segs = Stash::bufs[WRITEBUF].words;
 #ifdef __AVR__
-    PGM_P fmt = (PGM_P) *++segs;
+    const char* fmt PROGMEM = (const char*) *++segs;
 #else
-    PGM_P fmt = (PGM_P)((segs[2] << 16) | segs[1]);
+    const char* fmt PROGMEM = (const char*)((segs[2] << 16) | segs[1]);
     segs += 2;
 #endif
     Stash stash;
@@ -291,9 +292,9 @@ void Stash::cleanup () {
     Stash::load(WRITEBUF, 0);
     uint16_t* segs = Stash::bufs[WRITEBUF].words;
 #ifdef __AVR__
-    PGM_P fmt = (PGM_P) *++segs;
+    const char* fmt PROGMEM = (const char*) *++segs;
 #else
-    PGM_P fmt = (PGM_P)((segs[2] << 16) | segs[1]);
+    const char* fmt PROGMEM = (const char*)((segs[2] << 16) | segs[1]);
     segs += 2;
 #endif
     for (;;) {
@@ -315,7 +316,7 @@ void Stash::cleanup () {
     }
 }
 
-void BufferFiller::emit_p(PGM_P fmt, ...) {
+void BufferFiller::emit_p(const char* fmt PROGMEM, ...) {
     va_list ap;
     va_start(ap, fmt);
     for (;;) {
@@ -364,7 +365,7 @@ void BufferFiller::emit_p(PGM_P fmt, ...) {
             strcpy((char*) ptr, va_arg(ap, const char*));
             break;
         case 'F': {
-            PGM_P s = va_arg(ap, PGM_P);
+            const char* s PROGMEM = va_arg(ap, const char*);
             char d;
             while ((d = pgm_read_byte(s++)) != 0)
                 *ptr++ = d;
@@ -388,15 +389,15 @@ void BufferFiller::emit_p(PGM_P fmt, ...) {
 
 EtherCard ether;
 
-uint8_t EtherCard::mymac[6];  // my MAC address
-uint8_t EtherCard::myip[4];   // my ip address
-uint8_t EtherCard::netmask[4]; // subnet mask
-uint8_t EtherCard::broadcastip[4]; // broadcast address
-uint8_t EtherCard::gwip[4];   // gateway
-uint8_t EtherCard::dhcpip[4]; // dhcp server
-uint8_t EtherCard::dnsip[4];  // dns server
-uint8_t EtherCard::hisip[4];  // ip address of remote host
-uint16_t EtherCard::hisport = 80; // tcp port to browse to
+uint8_t EtherCard::mymac[ETH_LEN];  // my MAC address
+uint8_t EtherCard::myip[IP_LEN];   // my ip address
+uint8_t EtherCard::netmask[IP_LEN]; // subnet mask
+uint8_t EtherCard::broadcastip[IP_LEN]; // broadcast address
+uint8_t EtherCard::gwip[IP_LEN];   // gateway
+uint8_t EtherCard::dhcpip[IP_LEN]; // dhcp server
+uint8_t EtherCard::dnsip[IP_LEN];  // dns server
+uint8_t EtherCard::hisip[IP_LEN];  // ip address of remote host
+uint16_t EtherCard::hisport = HTTP_PORT; // tcp port to browse to
 bool EtherCard::using_dhcp = false;
 bool EtherCard::persist_tcp_connection = false;
 uint16_t EtherCard::delaycnt = 0; //request gateway ARP lookup

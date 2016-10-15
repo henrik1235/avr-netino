@@ -26,7 +26,7 @@ See the comments in the example sketches for details about how to try them out.
     SCK - Pin 13
     SO  - Pin 12
     SI  - Pin 11
-    CS  - Pin  8 # Selectable with the ether.begin() function
+    CS  - Pin 10 # Selectable with the ether.begin() function
 
 ### PIN Connections using an Arduino Mega
 
@@ -36,8 +36,6 @@ See the comments in the example sketches for details about how to try them out.
     SO  - Pin 50
     SI  - Pin 51
     CS  - Pin 53 # Selectable with the ether.begin() function
-    # The default CS pin defaults to 8, so you have to set it on a mega:
-    ether.begin(sizeof Ethernet::buffer, mymac, 53)
 
 ## Support
 
@@ -48,3 +46,14 @@ The issue tracker has been moved back to [Github][I] again.
 [I]: https://github.com/jcw/ethercard/issues
 [S]: https://travis-ci.org/jcw/ethercard.svg
 [T]: https://travis-ci.org/jcw/ethercard
+
+## Related Work
+
+There are other Arduino libraries for the ENC28J60 that are worth mentioning:
+
+* [UIPEthernet](https://github.com/ntruchsess/arduino_uip) (Drop in replacement for stock Arduino Ethernet library)
+* [EtherSia](https://github.com/njh/EtherSia) (IPv6 Arduino library for ENC28J60)
+* [EtherShield](https://github.com/thiseldo/EtherShield) (no longer maintained, predecessor to Ethercard)
+* [ETHER_28J60](https://github.com/muanis/arduino-projects/tree/master/libraries/ETHER_28J60) (no longer maintained, very low footprint and simple)
+
+Read more about the differences at [this blog post](http://www.tweaking4all.com/hardware/arduino/arduino-enc28j60-ethernet/).
