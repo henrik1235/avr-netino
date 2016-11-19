@@ -14,13 +14,13 @@
 				{
 					"name": "avrnetio",
 					"architecture": "avr",
-					"version": "1.2.0",
+					"version": "1.2.1",
 					"category": "Contributed",
 
-					"url": "https://github.com/henrik1235/avr-netino/releases/download/v1.2.0/avr-netino_1.2.0.zip",
-					"archiveFileName": "avr-netino_1.2.0.zip",
-					"checksum": "SHA-256:528103D35659D7F14FD32B62BA0F80EBCFE3911B087B05182E0F1EA65CEE52C5", 
-					"size": "841078",	
+					"url": "https://github.com/henrik1235/avr-netino/releases/download/v1.2.1/avr-netino_1.2.1.zip",
+					"archiveFileName": "avr-netino_1.2.1.zip",
+					"checksum": "SHA-256:846C56FEEA97BFD93A630199469D41F4E11E4B1CF584D4F409825A98E3C8DE6D", 
+					"size": "817118",	
 
 					"help": {
 						"online": "https://github.com/henrik1235/avr-netino"
